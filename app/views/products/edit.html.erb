@@ -1,0 +1,28 @@
+<h1>Edit Product</h1>
+<h5>NOTE: Every product added requires a price.</h5>
+
+<%= form_for @product do |field| %>
+  <div>
+    <%= field.label :title %>
+    <%= field.text_field :title %>
+  </div>
+  <div>
+    <%= field.label :price %>
+    <%= field.text_field :price %>
+  </div>
+  <div>
+    <%= field.label :description %>
+  </div>
+  <div>
+    <%= field.text_area :description %>
+  </div>
+  <%= field.submit %>
+<% end %>
+
+<% if @product.errors.any? %>
+  <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
